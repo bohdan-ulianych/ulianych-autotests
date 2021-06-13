@@ -19,8 +19,9 @@
     <selenium-java.version>3.141.59</selenium-java.version>
     <webdrivermanager.version>4.4.3</webdrivermanager.version>
     <testng.version>6.14.3</testng.version>
-    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+    <maven-surefire-plugin.version>3.0.0-M5 </maven-surefire-plugin.version>
     <allure-testng.version>2.12.1</allure-testng.version>
+    <SLF4J-NOP-Binding.version>1.7.13</SLF4J-NOP-Binding.version>
   </properties>
 
   <dependencies>
@@ -36,6 +37,7 @@
       <version>${webdrivermanager.version}</version>
       <scope>test</scope>
     </dependency>
+
 
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
@@ -58,6 +60,22 @@
       <artifactId>allure-testng</artifactId>
       <version>${allure-testng.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>4.4.3</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-nop -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>${SLF4J-NOP-Binding.version}</version>
+      <scope>test</scope>
+    </dependency>
+
 
   </dependencies>
 

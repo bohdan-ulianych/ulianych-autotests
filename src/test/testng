@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "WindscribeTest">
+   <test name = "Login">
+      <classes>
+         <class name = "LoginTests"/>
+      </classes>
+   </test>
+   <test name = "Localization">
+         <classes>
+            <class name = "LocalizationTests"/>
+         </classes>
+      </test>
+      <test name = "Myaccount">
+              <classes>
+                 <class name = "MyaccountTests"/>
+              </classes>
+           </test>
+</suite>

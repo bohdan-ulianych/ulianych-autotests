@@ -1,38 +1,67 @@
 package org.example.Pages;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
+import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import javax.swing.*;
-import java.util.concurrent.TimeUnit;
-
-public class HomePage {
-    WebDriver driver;
+public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public WebElement logInButton = driver.findElement(By.xpath("//*[text()='Log In']"));
-    public WebElement signUpButton = driver.findElement(By.xpath("//*[text()='Sign Up'][1]"));
+    @FindBy(xpath = "//*[text()='Log In']")
+    public WebElement logInButton;
+
+    @FindBy(xpath = "//*[text()='Sign Up'][1]")
+    public WebElement signUpButton;
+
+    @FindBy(xpath = "//*[@class='language-selector-toggle']")
+    public WebElement rusFlagButton;
+
+    @FindBy(xpath = "//a[@href = 'https://rus.windscribe.com/']")
+    public WebElement rusLocButton;
+
+    @FindBy(xpath = "//*[@class='language-selector-toggle']")
+    public WebElement deuFlagButton;
+
+    @FindBy(xpath = "//a[@href = 'https://deu.windscribe.com/']")
+    WebElement deuLocButton;
+
+    @FindBy(xpath = "//*[@class='language-selector-toggle']")
+    WebElement itaFlagButton;
+
+    @FindBy(xpath = "//a[@href = 'https://ita.windscribe.com/']")
+    WebElement itaLocButton;
+
+    public HomePage itaFlagButtonClick(){
+        itaFlagButton.click();
+        return this;
+    }
+
+    public void itaLocButtonClick(){
+        itaLocButton.click();
+    }
+
+    public HomePage deuFlagButtonClick() {
+        deuFlagButton.click();
+        return this;
+    }
+
+    public void deuLocButtonClick() {
+        deuLocButton.click();
+    }
+
+    public HomePage clickToFlag() {
+        rusFlagButton.click();
+        return this;
+    }
+
+    public void clickToChangeLoc() {
+        rusLocButton.click();
+    }
 
     public void goToLoginPage() {
         logInButton.click();
-    }
-
-    public void goToRegistrationPage() {
-        signUpButton.click();
     }
 
 }

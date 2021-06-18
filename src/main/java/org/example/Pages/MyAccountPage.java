@@ -50,6 +50,9 @@ public class MyAccountPage extends BasePage{
     @FindBy(xpath = "//span[text()='Your password has been changed']")
     WebElement confirmChanges;
 
+    @FindBy(xpath = "//*[text()='Login is not correct. Try again.']")
+    WebElement failedSignIn;
+
     public void checkChangePassword(){
         Assert.assertTrue(confirmChanges.isDisplayed());
         System.out.print("Password is changed. ");
@@ -145,7 +148,11 @@ public class MyAccountPage extends BasePage{
     public void checkSignIn(){
         Assert.assertTrue(successSingIn.isDisplayed());
         System.out.println("Login is passed");
+    }
 
+    public void checkIncorrectData(){
+        Assert.assertTrue(failedSignIn.isDisplayed());
+        System.out.println("Russian localization is available");
     }
 
 

@@ -18,8 +18,6 @@ public class LoginPage extends BasePage{
     @FindBy(id = "login_button")
     public WebElement buttonLogg;
 
-    @FindBy(xpath = "//*[text()='Login is not correct. Try again.']")
-    WebElement failedSignIn;
 
     public  LoginPage enterNik(String Login){
         inputNik.sendKeys(Login);
@@ -31,15 +29,12 @@ public class LoginPage extends BasePage{
         return this;
     }
 
-    public LoginPage clickLog(){
+    public MyAccountPage clickLog(){
         buttonLogg.click();
-        return this;
+        return new MyAccountPage(driver);
     }
 
-    public void checkIncorrectData(){
-        Assert.assertTrue(failedSignIn.isDisplayed());
-        System.out.println("Russian localization is available");
-    }
+
 
 
 }

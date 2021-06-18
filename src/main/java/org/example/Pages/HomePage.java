@@ -2,6 +2,7 @@ package org.example.Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class HomePage extends BasePage {
 
@@ -38,8 +39,16 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public void itaLocButtonClick(){
+    public HomePage itaLocButtonClick(){
         itaLocButton.click();
+        return this;
+    }
+
+    public HomePage checkItaLoc(){
+        String itaLocConfirm = driver.getCurrentUrl();
+        Assert.assertTrue(itaLocConfirm.contains("https://ita.windscribe.com/"));
+        System.out.println("Italiano localization is available");
+        return this;
     }
 
     public HomePage deuFlagButtonClick() {
@@ -47,8 +56,16 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public void deuLocButtonClick() {
+    public HomePage deuLocButtonClick() {
         deuLocButton.click();
+        return this;
+    }
+
+    public HomePage checkDeuLoc(){
+        String deuLocConfirm = driver.getCurrentUrl();
+        Assert.assertTrue(deuLocConfirm.contains("https://deu.windscribe.com/"));
+        System.out.println("Deutsche localization is available");
+        return this;
     }
 
     public HomePage clickToFlag() {
@@ -56,12 +73,21 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public void clickToChangeLoc() {
+    public HomePage clickToChangeLoc() {
         rusLocButton.click();
+        return this;
     }
 
-    public void goToLoginPage() {
+    public HomePage checkRusLoc(){
+        String rusLocConfirm = driver.getCurrentUrl();
+        Assert.assertTrue(rusLocConfirm.contains("https://rus.windscribe.com/"));
+        System.out.println("Russian localization is available");
+        return this;
+    }
+
+    public LoginPage goToLoginPage() {
         logInButton.click();
+        return new LoginPage(driver);
     }
 
 }

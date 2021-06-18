@@ -13,12 +13,10 @@ public class MyAccountTests extends BaseTest {
     @BeforeMethod
     public void login() {
         new HomePage(driver)
-                .goToLoginPage();
-        new LoginPage(driver)
+                .goToLoginPage()
                 .enterNik(validLogin)
                 .enterPassword(validPassword)
-                .clickLog();
-        new MyAccountPage(driver)
+                .clickLog()
                 .checkSignIn();
     }
 

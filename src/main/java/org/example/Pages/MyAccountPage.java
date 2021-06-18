@@ -69,9 +69,10 @@ public class MyAccountPage extends BasePage{
         return this;
     }
 
-    public void checkChangePassword(){
+    public MyAccountPage checkChangePassword(){
         Assert.assertTrue(confirmChanges.isDisplayed());
         System.out.print("Password is changed. ");
+        return this;
     }
 
     public MyAccountPage buttonConfirmChangesPassClick(){
@@ -106,17 +107,19 @@ public class MyAccountPage extends BasePage{
     }
 
 
-    public void getRefLink(){
+    public MyAccountPage getRefLink(){
         if(refLink != null){
             System.out.println("Link for your friends: " + refLink.getText());
         }else {
             System.out.println("Error to find referral link");
         }
+        return this;
     }
 
-    public void checkChangeEmail(){
+    public MyAccountPage checkChangeEmail(){
         Assert.assertTrue(confirmChangeEmail.isDisplayed());
         System.out.print("Email is changed. ");
+        return this;
     }
 
     public MyAccountPage buttonConfirmChangeEmailClick(){

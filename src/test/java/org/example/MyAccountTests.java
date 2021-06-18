@@ -6,30 +6,28 @@ import org.testng.annotations.*;
 public class MyAccountTests extends BaseTest {
 
     public String validLogin = "andersenTEST";
-    public String validPassword = "test1";
-    String Email = "test15@gmvvf.co1";
+    public String validPassword = "test11111";
+    public String Email = "test15@gmvvf.co111";
 
-    @BeforeMethod
-    public void login() {
+
+
+    @Test(description = "Валидная смена пароля пользователя. НЕ ЗАБЫТЬ ПОМЕНЯТЬ ПАРОЛЬ В ОСТАЛЬНЫХ ПЕРЕМЕННЫХ Password")
+    public void test1() {
+        String newPassword = validPassword + "1";
         new HomePage(driver)
                 .goToLoginPage()
                 .enterNik(validLogin)
                 .enterPassword(validPassword)
                 .clickLog()
-                .checkSignIn();
-    }
-
-    @Test(description = "Валидная смена пароля пользователя. НЕ ЗАБЫТЬ ПОМЕНЯТЬ ПАРОЛЬ В ОСТАЛЬНЫХ ПЕРЕМЕННЫХ Password")
-    public void test1() {
-        String newPassword = validPassword + "1";
-        new MyAccountPage(driver)
+                .checkSignIn()
                 .buttonEditPasswordClick()
                 .inputOldPasswordClick()
                 .enterOldPassword(validPassword)
                 .enterNewPassword(newPassword)
                 .confirmNewPassword(newPassword)
                 .buttonConfirmChangesPassClick()
-                .checkChangePassword();
+                .checkChangePassword()
+                .logOut();
         System.out.println(" New password is: " + newPassword);
         validPassword = newPassword;
     }
@@ -37,13 +35,25 @@ public class MyAccountTests extends BaseTest {
 
     @Test(description = "Вывод реферальной ссылки")
     public void test2() {
-        new MyAccountPage(driver).getRefLink();
+        new HomePage(driver)
+                .goToLoginPage()
+                .enterNik(validLogin)
+                .enterPassword(validPassword)
+                .clickLog()
+                .checkSignIn()
+                .getRefLink()
+                .logOut();
     }
 
     @Test(description = "Валидная смена електронной почты. НЕ ЗАБЫТЬ СМЕНИТЬ ПОМЕНЯТЬ ПЕРЕМЕННУЮ Email")
     void test3() {
         String newEmail = Email + "1";
-        new MyAccountPage(driver)
+        new HomePage(driver)
+                .goToLoginPage()
+                .enterNik(validLogin)
+                .enterPassword(validPassword)
+                .clickLog()
+                .checkSignIn()
                 .buttonEditEmailClick()
                 .inputNewEmailClick()
                 .inputConfirmPasswordClear()
@@ -52,7 +62,8 @@ public class MyAccountTests extends BaseTest {
                 .inputConfirmPasswordClear()
                 .newEmailConfirmPassword(validPassword)
                 .buttonConfirmChangeEmailClick()
-                .checkChangeEmail();
+                .checkChangeEmail()
+                .logOut();
         System.out.println("New email is: " + newEmail);
         newEmail = Email;
     }

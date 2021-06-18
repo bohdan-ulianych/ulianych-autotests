@@ -91,10 +91,5 @@ public class HomePage extends BasePage {
         return new LoginPage(driver);
     }
 
-    public void closeWindow(){
-        driver.close();
-    }
-
-
 
 }

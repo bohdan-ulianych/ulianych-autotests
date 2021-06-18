@@ -5,8 +5,8 @@ import org.testng.annotations.*;
 
 public class LoginTests extends BaseTest {
 
-    public String validLogin = "andersenTEST";
-    public String validPassword = "test1";
+    public final String VALID_LOGIN = "andersenTEST";
+    public final String VALID_PASSWORD = "test1";
     public String invalidLogin = "jjvkfjnvdfd";
     public String invalidPassword = "jjvf51665";
 
@@ -15,8 +15,8 @@ public class LoginTests extends BaseTest {
     public void test1() {
         new HomePage(driver)
                 .goToLoginPage()
-                .enterNik(validLogin)
-                .enterPassword(validPassword)
+                .enterNik(VALID_LOGIN)
+                .enterPassword(VALID_PASSWORD)
                 .clickLog()
                 .checkSignIn()
                 .logOut();
@@ -27,7 +27,7 @@ public class LoginTests extends BaseTest {
         new HomePage(driver)
                 .goToLoginPage()
                 .enterNik(invalidLogin)
-                .enterPassword(validPassword)
+                .enterPassword(VALID_PASSWORD)
                 .clickLog()
                 .checkIncorrectData();
 
@@ -37,7 +37,7 @@ public class LoginTests extends BaseTest {
     public void test3() {
         new HomePage(driver)
                 .goToLoginPage()
-                .enterNik(validLogin)
+                .enterNik(VALID_LOGIN)
                 .enterPassword(invalidPassword)
                 .clickLog()
                 .checkIncorrectData();

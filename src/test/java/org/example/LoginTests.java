@@ -1,7 +1,6 @@
 package org.example;
+
 import org.example.Pages.HomePage;
-import org.example.Pages.LoginPage;
-import org.example.Pages.MyAccountPage;
 import org.testng.annotations.*;
 
 public class LoginTests extends BaseTest {
@@ -14,12 +13,13 @@ public class LoginTests extends BaseTest {
 
     @Test(description = "Успешный вход на сайт")
     public void test1() {
-         new HomePage(driver)
+        new HomePage(driver)
                 .goToLoginPage()
-                 .enterNik(validLogin)
-                 .enterPassword(validPassword)
-                 .clickLog()
-                 .checkSignIn();
+                .enterNik(validLogin)
+                .enterPassword(validPassword)
+                .clickLog()
+                .checkSignIn()
+                .logOut();
     }
 
     @Test(description = "Вход на сайт с некорректным логином и валидным паролем")
@@ -30,6 +30,7 @@ public class LoginTests extends BaseTest {
                 .enterPassword(validPassword)
                 .clickLog()
                 .checkIncorrectData();
+
     }
 
     @Test(description = "Вход на сайт с валидным  логином и некорректным паролем")

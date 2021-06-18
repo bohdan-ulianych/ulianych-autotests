@@ -1,6 +1,6 @@
 package org.example;
+
 import org.example.Pages.HomePage;
-import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class LocalizationTests extends BaseTest {

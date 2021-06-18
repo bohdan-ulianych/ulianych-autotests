@@ -2,8 +2,11 @@ package org.example.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
+import javax.swing.*;
 
 public class MyAccountPage extends BasePage{
     public MyAccountPage(WebDriver driver) {
@@ -52,6 +55,19 @@ public class MyAccountPage extends BasePage{
 
     @FindBy(xpath = "//*[text()='Login is not correct. Try again.']")
     WebElement failedSignIn;
+
+    @FindBy(xpath = "//*[@href = '/myaccount/logout']")
+    WebElement logOutButton;
+
+    @FindBy(xpath = "//*[@href = '/myaccount']")
+    WebElement myAccountButton;
+
+    public MyAccountPage logOut(){
+        Actions moove = new Actions(driver);
+        moove.moveToElement(myAccountButton).build().perform();
+        logOutButton.click();
+        return this;
+    }
 
     public void checkChangePassword(){
         Assert.assertTrue(confirmChanges.isDisplayed());
@@ -145,15 +161,16 @@ public class MyAccountPage extends BasePage{
     }
 
 
-    public void checkSignIn(){
+    public MyAccountPage checkSignIn(){
         Assert.assertTrue(successSingIn.isDisplayed());
         System.out.println("Login is passed");
+        return this;
     }
 
-    public void checkIncorrectData(){
+    public MyAccountPage checkIncorrectData(){
         Assert.assertTrue(failedSignIn.isDisplayed());
         System.out.println("Russian localization is available");
+        return this;
     }
-
 
 }

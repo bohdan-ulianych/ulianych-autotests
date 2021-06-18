@@ -1,6 +1,5 @@
 package org.example;
 import org.example.Pages.HomePage;
-import org.example.Pages.LoginPage;
 import org.example.Pages.MyAccountPage;
 import org.testng.annotations.*;
 

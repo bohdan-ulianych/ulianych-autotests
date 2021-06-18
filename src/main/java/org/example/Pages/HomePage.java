@@ -39,6 +39,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
+
     public HomePage itaLocButtonClick(){
         itaLocButton.click();
         return this;
@@ -89,5 +90,11 @@ public class HomePage extends BasePage {
         logInButton.click();
         return new LoginPage(driver);
     }
+
+    public void closeWindow(){
+        driver.close();
+    }
+
+
 
 }

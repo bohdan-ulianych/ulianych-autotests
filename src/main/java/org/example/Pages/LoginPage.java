@@ -19,6 +19,8 @@ public class LoginPage extends BasePage{
     public WebElement buttonLogg;
 
 
+
+
     public  LoginPage enterNik(String Login){
         inputNik.sendKeys(Login);
         return this;

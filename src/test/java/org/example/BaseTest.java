@@ -25,10 +25,8 @@ public class BaseTest {
         driver.get("https://windscribe.com");
     }
 
-
     @AfterTest
     public void quit() {
         driver.quit();
-
     }
 }

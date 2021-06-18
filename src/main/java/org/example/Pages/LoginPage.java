@@ -1,9 +1,11 @@
 package org.example.Pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
-public class LoginPage extends BasePage{
+
+public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -18,25 +20,18 @@ public class LoginPage extends BasePage{
     @FindBy(id = "login_button")
     public WebElement buttonLogg;
 
-
-
-
-    public  LoginPage enterNik(String Login){
-        inputNik.sendKeys(Login);
+    public LoginPage enterNik(String login) {
+        inputNik.sendKeys(login);
         return this;
     }
 
-    public LoginPage enterPassword(String Password){
-        inputPassword.sendKeys(Password);
+    public LoginPage enterPassword(String password) {
+        inputPassword.sendKeys(password);
         return this;
     }
 
-    public MyAccountPage clickLog(){
+    public MyAccountPage clickLog() {
         buttonLogg.click();
         return new MyAccountPage(driver);
     }
-
-
-
-
 }

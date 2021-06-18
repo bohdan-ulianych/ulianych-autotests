@@ -1,4 +1,5 @@
 package org.example.Pages;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.testng.Assert;
 
 import javax.swing.*;
 
-public class MyAccountPage extends BasePage{
+public class MyAccountPage extends BasePage {
     public MyAccountPage(WebDriver driver) {
         super(driver);
     }
@@ -40,7 +41,6 @@ public class MyAccountPage extends BasePage{
     @FindBy(id = "old_pass_input")
     WebElement inputOldPassword;
 
-
     @FindBy(id = "new_pass_input")
     WebElement inputNewPassword;
 
@@ -62,118 +62,113 @@ public class MyAccountPage extends BasePage{
     @FindBy(xpath = "//*[@href = '/myaccount']")
     WebElement myAccountButton;
 
-    public MyAccountPage logOut(){
+    public MyAccountPage logOut() {
         Actions moove = new Actions(driver);
         moove.moveToElement(myAccountButton).build().perform();
         logOutButton.click();
         return this;
     }
 
-    public MyAccountPage checkChangePassword(){
+    public MyAccountPage checkChangePassword() {
         Assert.assertTrue(confirmChanges.isDisplayed());
         System.out.print("Password is changed. ");
         return this;
     }
 
-    public MyAccountPage buttonConfirmChangesPassClick(){
+    public MyAccountPage buttonConfirmChangesPassClick() {
         buttonConfirmChangesPass.click();
         return this;
     }
 
-    public MyAccountPage confirmNewPassword(String newPassword){
+    public MyAccountPage confirmNewPassword(String newPassword) {
         inputConfirmNewPassword.sendKeys(newPassword);
         return this;
     }
 
-    public MyAccountPage enterNewPassword(String newPassword){
+    public MyAccountPage enterNewPassword(String newPassword) {
         inputNewPassword.sendKeys(newPassword);
         return this;
     }
 
-    public MyAccountPage inputOldPasswordClick(){
+    public MyAccountPage inputOldPasswordClick() {
         inputOldPassword.click();
         return this;
     }
 
-    public MyAccountPage enterOldPassword(String Password){
+    public MyAccountPage enterOldPassword(String Password) {
         inputOldPassword.sendKeys(Password);
         return this;
     }
 
-
-    public MyAccountPage buttonEditPasswordClick(){
+    public MyAccountPage buttonEditPasswordClick() {
         buttonEditPassword.click();
         return this;
     }
 
-
-    public MyAccountPage getRefLink(){
-        if(refLink != null){
+    public MyAccountPage getRefLink() {
+        if (refLink.getText() != null) {
             System.out.println("Link for your friends: " + refLink.getText());
-        }else {
+        } else {
             System.out.println("Error to find referral link");
         }
         return this;
     }
 
-    public MyAccountPage checkChangeEmail(){
+    public MyAccountPage checkChangeEmail() {
         Assert.assertTrue(confirmChangeEmail.isDisplayed());
         System.out.print("Email is changed. ");
         return this;
     }
 
-    public MyAccountPage buttonConfirmChangeEmailClick(){
+    public MyAccountPage buttonConfirmChangeEmailClick() {
         buttonConfirmChangeEmail.click();
         return this;
     }
 
-    public MyAccountPage inputConfirmPasswordClick(){
+    public MyAccountPage inputConfirmPasswordClick() {
         inputConfirmPassword.click();
         return this;
     }
 
-    public MyAccountPage inputConfirmPasswordClear(){
+    public MyAccountPage inputConfirmPasswordClear() {
         inputConfirmPassword.clear();
         return this;
     }
 
-    public MyAccountPage newEmailConfirmPassword(String Password){
+    public MyAccountPage newEmailConfirmPassword(String Password) {
         inputConfirmPassword.sendKeys(Password);
         return this;
     }
 
-    public MyAccountPage inputNewEmailClick(){
+    public MyAccountPage inputNewEmailClick() {
         inputNewEmail.click();
         return this;
     }
 
-    public MyAccountPage inputNewEmailClear(){
+    public MyAccountPage inputNewEmailClear() {
         inputNewEmail.clear();
         return this;
     }
 
-    public MyAccountPage enterNewEmail(String Email){
+    public MyAccountPage enterNewEmail(String Email) {
         inputNewEmail.sendKeys(Email);
         return this;
     }
 
-
-    public MyAccountPage buttonEditEmailClick(){
+    public MyAccountPage buttonEditEmailClick() {
         buttonEditEmail.click();
         return this;
     }
 
-
-    public MyAccountPage checkSignIn(){
+    public MyAccountPage checkSignIn() {
         Assert.assertTrue(successSingIn.isDisplayed());
         System.out.println("Login is passed");
         return this;
     }
 
-    public MyAccountPage checkIncorrectData(){
+    public MyAccountPage checkIncorrectData() {
         Assert.assertTrue(failedSignIn.isDisplayed());
         System.out.println("Russian localization is available");
         return this;
     }
-
 }

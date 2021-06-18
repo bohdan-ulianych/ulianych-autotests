@@ -1,4 +1,5 @@
 package org.example.Pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,18 +35,17 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//a[@href = 'https://ita.windscribe.com/']")
     WebElement itaLocButton;
 
-    public HomePage itaFlagButtonClick(){
+    public HomePage itaFlagButtonClick() {
         itaFlagButton.click();
         return this;
     }
 
-
-    public HomePage itaLocButtonClick(){
+    public HomePage itaLocButtonClick() {
         itaLocButton.click();
         return this;
     }
 
-    public HomePage checkItaLoc(){
+    public HomePage checkItaLoc() {
         String itaLocConfirm = driver.getCurrentUrl();
         Assert.assertTrue(itaLocConfirm.contains("https://ita.windscribe.com/"));
         System.out.println("Italiano localization is available");
@@ -62,7 +62,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage checkDeuLoc(){
+    public HomePage checkDeuLoc() {
         String deuLocConfirm = driver.getCurrentUrl();
         Assert.assertTrue(deuLocConfirm.contains("https://deu.windscribe.com/"));
         System.out.println("Deutsche localization is available");
@@ -79,7 +79,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage checkRusLoc(){
+    public HomePage checkRusLoc() {
         String rusLocConfirm = driver.getCurrentUrl();
         Assert.assertTrue(rusLocConfirm.contains("https://rus.windscribe.com/"));
         System.out.println("Russian localization is available");
@@ -90,6 +90,5 @@ public class HomePage extends BasePage {
         logInButton.click();
         return new LoginPage(driver);
     }
-
 
 }

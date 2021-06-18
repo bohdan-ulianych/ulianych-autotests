@@ -6,7 +6,7 @@ import org.testng.annotations.*;
 public class LocalizationTests extends BaseTest {
 
     @Test(description = "Смена языка на главной странице c английского на русский ")
-    public void test1() {
+    public void changeLanguageInHomePageRus() {
         new HomePage(driver)
                 .clickToFlag()
                 .clickToChangeLoc()
@@ -14,7 +14,7 @@ public class LocalizationTests extends BaseTest {
     }
 
     @Test(description = "Смена языка на главной странице c английского на немецкий ")
-    public void test2() {
+    public void changeLanguageInHomePageDeu() {
         new HomePage(driver)
                 .deuFlagButtonClick()
                 .deuLocButtonClick()
@@ -22,7 +22,7 @@ public class LocalizationTests extends BaseTest {
     }
 
     @Test(description = "Смена языка на главной странице c английского на итальянский ")
-    public void test3() {
+    public void changeLanguageInHomePageIta() {
         new HomePage(driver)
                 .itaFlagButtonClick()
                 .itaLocButtonClick()

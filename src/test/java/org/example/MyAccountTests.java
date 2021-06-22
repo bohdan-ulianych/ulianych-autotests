@@ -3,15 +3,15 @@ package org.example;
 import io.qameta.allure.Description;
 import org.example.Pages.HomePage;
 import org.example.Pages.MyAccountPage;
-import org.junit.jupiter.api.AfterAll;
 import org.testng.annotations.*;
+import utils.PropertyHelper;
 
 public class MyAccountTests extends BaseTest {
 
-    public final String VALID_LOGIN = "bakabek";
-    public String validPassword = "test123";
-    public final String email = "testing@gmvvf.c5";
-    public final String returnPassword = "test123";
+    public final String VALID_LOGIN = PropertyHelper.getConf().validLogin();
+    public String validPassword = PropertyHelper.getConf().validPassword();
+    public final String EMAIL = PropertyHelper.getConf().email();
+    public final String RETURN_PASSWORD = PropertyHelper.getConf().returnPassword();
 
 
     @Test(description = "Валидная смена пароля пользователя.")
@@ -52,7 +52,7 @@ public class MyAccountTests extends BaseTest {
     @Test(description = "Валидная смена електронной почты.")
     @Description("Valid changing user`s email.")
     void successfulChangeEmail() {
-        String newEmail = email + "1";
+        String newEmail = EMAIL + "1";
         new HomePage(driver)
                 .goToLoginPage()
                 .enterNik(VALID_LOGIN)
@@ -83,7 +83,7 @@ public class MyAccountTests extends BaseTest {
                 .buttonEditEmailClick()
                 .inputNewEmailClick()
                 .inputNewEmailClear()
-                .enterNewEmail(email)
+                .enterNewEmail(EMAIL)
                 .inputConfirmPasswordClick()
                 .inputConfirmPasswordClear()
                 .newEmailConfirmPassword(validPassword)
@@ -92,8 +92,8 @@ public class MyAccountTests extends BaseTest {
                 .buttonEditPasswordClick()
                 .inputOldPasswordClick()
                 .enterOldPassword(validPassword)
-                .enterNewPassword(returnPassword)
-                .confirmNewPassword(returnPassword)
+                .enterNewPassword(RETURN_PASSWORD)
+                .confirmNewPassword(RETURN_PASSWORD)
                 .buttonConfirmChangesPassClick()
                 .checkChangePassword()
                 .logOut();

@@ -3,13 +3,14 @@ package org.example;
 import io.qameta.allure.Description;
 import org.example.Pages.HomePage;
 import org.testng.annotations.*;
+import utils.PropertyHelper;
 
 public class LoginTests extends BaseTest {
 
-    public final String VALID_LOGIN = "bakabek";
-    public final String VALID_PASSWORD = "test123";
-    public final String INVALID_LOGIN = "jjvkfjnvdfd";
-    public final String INVALID_PASSWORD = "jjvf51665";
+    public final String VALID_LOGIN = PropertyHelper.getConf().validLogin();
+    public final String VALID_PASSWORD = PropertyHelper.getConf().validPassword();
+    public final String INVALID_LOGIN = PropertyHelper.getConf().invalidLogin();
+    public final String INVALID_PASSWORD = PropertyHelper.getConf().invalidPassword();
 
     @Test(description = "Успешный вход на сайт")
     @Description("Successful Login to your personal account.")

@@ -1,14 +1,12 @@
 package org.example.Pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-import javax.swing.*;
 
 public class MyAccountPage extends BasePage {
     public MyAccountPage(WebDriver driver) {
@@ -187,7 +185,7 @@ public class MyAccountPage extends BasePage {
     @Step("Check trying to sing in with incorrect data.")
     public MyAccountPage checkIncorrectData() {
         Assert.assertTrue(failedSignIn.isDisplayed());
-        System.out.println("Russian localization is available");
+        System.out.println("Validation is passed");
         return this;
     }
 }

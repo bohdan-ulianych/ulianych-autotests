@@ -3,6 +3,8 @@ package org.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 import utils.PropertyHelper;
 
@@ -12,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     WebDriver driver;
+    private static Logger loger = LoggerFactory.getLogger(WebDriver.class);
+
 
     private final String START_URL = PropertyHelper.getConf().startUrl();
     private final int ELEMENT_TIMEOUT = PropertyHelper.getConf().elementTimeout();

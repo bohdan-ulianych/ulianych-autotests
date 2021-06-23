@@ -66,48 +66,55 @@ public class MyAccountPage extends BasePage {
         Actions moove = new Actions(driver);
         moove.moveToElement(myAccountButton).build().perform();
         logOutButton.click();
+        logger.info("Log out from personal account is done.");
         return this;
     }
 
     @Step("Check to change a user`s password.")
     public MyAccountPage checkChangePassword() {
         Assert.assertTrue(confirmChanges.isDisplayed());
-        System.out.print("Password is changed. ");
+        logger.info("Password is changed.");
         return this;
     }
     @Step("Click to \"Change\" button to confirm change password.")
     public MyAccountPage buttonConfirmChangesPassClick() {
         buttonConfirmChangesPass.click();
+        logger.info("\"Change\" button to confirm change password is clicked.");
         return this;
     }
 
     @Step("Enter user`s new password to confirm.")
     public MyAccountPage confirmNewPassword(String newPassword) {
         inputConfirmNewPassword.sendKeys(newPassword);
+        logger.info("Entering to confirm new password is done.");
         return this;
     }
 
     @Step("Enter user`s new password.")
     public MyAccountPage enterNewPassword(String newPassword) {
         inputNewPassword.sendKeys(newPassword);
+        logger.info("Entering new user`s password is done.");
         return this;
     }
 
     @Step("Click to field with changing password.")
     public MyAccountPage inputOldPasswordClick() {
         inputOldPassword.click();
+        logger.info("Fiend with change password is enable.");
         return this;
     }
 
     @Step("Enter user`s old password.")
     public MyAccountPage enterOldPassword(String Password) {
         inputOldPassword.sendKeys(Password);
+        logger.info("Entering old user`s password is done.");
         return this;
     }
 
     @Step("Click to change password button.")
     public MyAccountPage buttonEditPasswordClick() {
         buttonEditPassword.click();
+        logger.info("Button to change password is clicked.");
         return this;
     }
 
@@ -118,19 +125,21 @@ public class MyAccountPage extends BasePage {
         } else {
             System.out.println("Error to find referral link");
         }
+        logger.info("Referral link received and not empty. ");
         return this;
     }
 
     @Step("Check to change a user`s email.")
     public MyAccountPage checkChangeEmail() {
         Assert.assertTrue(confirmChangeEmail.isDisplayed());
-        System.out.print("Email is changed. ");
+        logger.info("Email is changed. ");
         return this;
     }
 
     @Step("Click to \"Change\" button to confirm change email.")
     public MyAccountPage buttonConfirmChangeEmailClick() {
         buttonConfirmChangeEmail.click();
+        logger.info("\"Change\" button to confirm change email is clicked.");
         return this;
     }
     @Step("Click to field with changing email.")

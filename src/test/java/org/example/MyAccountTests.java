@@ -73,7 +73,7 @@ public class MyAccountTests extends BaseTest {
     }
 
     @AfterClass
-    void returnOldPassword() {
+    void returnOldCredits() {
         new HomePage(driver)
                 .goToLoginPage()
                 .enterNik(VALID_LOGIN)

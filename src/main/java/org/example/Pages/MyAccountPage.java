@@ -145,56 +145,63 @@ public class MyAccountPage extends BasePage {
     @Step("Click to field with changing email.")
     public MyAccountPage inputConfirmPasswordClick() {
         inputConfirmPassword.click();
+        logger.info("Field with changing Email is enable. ");
         return this;
     }
 
     @Step("Clear field with confirming user`s password to change email.")
     public MyAccountPage inputConfirmPasswordClear() {
         inputConfirmPassword.clear();
+        logger.info("Fiend with confirming user`s password to change email is cleared. ");
         return this;
     }
 
     @Step("Enter user`s password to confirm changing email.")
     public MyAccountPage newEmailConfirmPassword(String Password) {
         inputConfirmPassword.sendKeys(Password);
+        logger.info("User`s password is entered. ");
         return this;
     }
 
     @Step("Click to field with changing email.")
     public MyAccountPage inputNewEmailClick() {
         inputNewEmail.click();
+        logger.info("Field with changing Email is enable. ");
         return this;
     }
 
     @Step("Clear field with old user`s email to change email.")
     public MyAccountPage inputNewEmailClear() {
         inputNewEmail.clear();
+        logger.info("Field with old user`s email is cleared.");
         return this;
     }
 
     @Step("Enter new user`s email.")
     public MyAccountPage enterNewEmail(String Email) {
         inputNewEmail.sendKeys(Email);
+        logger.info("New user`s email is entered.");
         return this;
     }
 
     @Step("Click to change email button.")
     public MyAccountPage buttonEditEmailClick() {
         buttonEditEmail.click();
+        logger.info("Button to change user`s email is clicked.");
         return this;
     }
 
-    @Step("Check success sing in user`s personal account.")
+    @Step("Check success sing in in user`s personal account.")
     public MyAccountPage checkSignIn() {
         Assert.assertTrue(successSingIn.isDisplayed());
-        System.out.println("Login is passed");
+        logger.info("Successful sign in in users personal account. ");
         return this;
     }
 
     @Step("Check trying to sing in with incorrect data.")
     public MyAccountPage checkIncorrectData() {
         Assert.assertTrue(failedSignIn.isDisplayed());
-        System.out.println("Validation is passed");
+        logger.warn("Entered incorrect data.");
         return this;
     }
 }

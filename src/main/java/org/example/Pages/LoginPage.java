@@ -1,11 +1,13 @@
 package org.example.Pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+@Slf4j
 public class LoginPage extends BasePage {
 
     public LoginPage(WebDriver driver) {
@@ -24,7 +26,6 @@ public class LoginPage extends BasePage {
     @Step("Enter a nik in Login page")
     public LoginPage enterNik(String login) {
         inputNik.sendKeys(login);
-        logger.info("Login " + login + " is entered.");
 
         return this;
     }
@@ -32,14 +33,12 @@ public class LoginPage extends BasePage {
     @Step("Enter a password in Login page")
     public LoginPage enterPassword(String password) {
         inputPassword.sendKeys(password);
-        logger.info("Password " + password + " is entered.");
         return this;
     }
 
     @Step("Click to \"LogIn\" button in Login page")
     public MyAccountPage clickLog() {
         buttonLogg.click();
-        logger.info("\"LogIn\" button in Login page is clicked. Go to MyAccount page.");
         return new MyAccountPage(driver);
     }
 }

@@ -20,6 +20,9 @@ public interface AppConfig extends Config {
     @Key("valid.password")
     String validPassword();
 
+    @Key(value = "webdriver.browser.name")
+    String webDriverBrowserName();
+
     @Key("invalid.password")
     String invalidPassword();
 
@@ -28,5 +31,8 @@ public interface AppConfig extends Config {
 
     @Key("timeout.element")
     int elementTimeout();
+
+    @Key("timeouts.page")
+    int pageLoadTimeout();
 
 }

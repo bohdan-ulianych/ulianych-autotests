@@ -1,9 +1,11 @@
 package org.example;
 
 import io.qameta.allure.Description;
+import logging.DefaultListener;
 import org.example.Pages.HomePage;
 import org.testng.annotations.*;
 
+@Listeners(DefaultListener.class)
 public class LocalizationTests extends BaseTest {
 
     @Test(description = "Смена языка на главной странице c английского на русский ")

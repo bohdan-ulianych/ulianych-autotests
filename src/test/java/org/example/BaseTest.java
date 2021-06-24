@@ -1,6 +1,9 @@
 package org.example;
 
+import driver.DriverProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import logging.DefaultListener;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
@@ -11,9 +14,10 @@ import utils.PropertyHelper;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
+@Listeners(DefaultListener.class)
 public class BaseTest {
-
-    WebDriver driver;
+     WebDriver driver;
     private static Logger loger = LoggerFactory.getLogger(WebDriver.class);
 
 
@@ -22,19 +26,18 @@ public class BaseTest {
 
     @BeforeTest
     public void wakeUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        WebDriver driver = DriverProvider.getDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(ELEMENT_TIMEOUT, TimeUnit.SECONDS);
     }
 
     @BeforeMethod
-    public void goToLink() {
-        driver.get(START_URL);
+    public void goToLinkk() {
+        DriverProvider.goToLink(START_URL);
     }
 
     @AfterTest
     public void quit() {
-        driver.quit();
+        DriverProvider.tearDown();
     }
 }

@@ -1,10 +1,12 @@
 package org.example;
 
 import io.qameta.allure.Description;
+import logging.DefaultListener;
 import org.example.Pages.HomePage;
 import org.testng.annotations.*;
 import utils.PropertyHelper;
 
+@Listeners(DefaultListener.class)
 public class LoginTests extends BaseTest {
 
     public final String VALID_LOGIN = PropertyHelper.getConf().validLogin();

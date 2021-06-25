@@ -17,10 +17,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Listeners(DefaultListener.class)
 public class BaseTest {
-     WebDriver driver;
-    private static Logger loger = LoggerFactory.getLogger(WebDriver.class);
-
-
+    WebDriver driver;
     private final String START_URL = PropertyHelper.getConf().startUrl();
     private final int ELEMENT_TIMEOUT = PropertyHelper.getConf().elementTimeout();
 
@@ -32,7 +29,7 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void goToLinkk() {
+    public void goToSite() {
         DriverProvider.goToLink(START_URL);
     }
 

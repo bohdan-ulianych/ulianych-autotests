@@ -1,5 +1,6 @@
 package org.example;
 
+import data.LoginProvider;
 import io.qameta.allure.Description;
 import logging.DefaultListener;
 import org.example.Pages.HomePage;
@@ -26,25 +27,15 @@ public class LoginTests extends BaseTest {
                 .logOut();
     }
 
-    @Test(description = "Вход на сайт с некорректным логином и валидным паролем")
-    @Description("Check login with incorrect nik and correct password.")
-    public void bloginWithIncorrectNik() {
+    @Test(dataProvider = "Test with incorrect data.", dataProviderClass = LoginProvider.class)
+    @Description("Check login with incorrect credits.")
+    public void loginWithIncorrectData(String login, String password) {
         new HomePage(driver)
                 .goToLoginPage()
-                .enterNik(INVALID_LOGIN)
-                .enterPassword(VALID_PASSWORD)
+                .enterNik(login)
+                .enterPassword(password)
                 .clickLog()
                 .checkIncorrectData();
     }
 
-    @Test(description = "Вход на сайт с валидным  логином и некорректным паролем")
-    @Description("Check login with correct nik and incorrect password.")
-    public void loginWithIncorrectIncorrectPass() {
-        new HomePage(driver)
-                .goToLoginPage()
-                .enterNik(VALID_LOGIN)
-                .enterPassword(INVALID_PASSWORD)
-                .clickLog()
-                .checkIncorrectData();
-    }
 }

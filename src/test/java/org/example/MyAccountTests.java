@@ -3,7 +3,6 @@ package org.example;
 import io.qameta.allure.Description;
 import logging.DefaultListener;
 import org.example.Pages.HomePage;
-import org.example.Pages.MyAccountPage;
 import org.testng.annotations.*;
 import utils.PropertyHelper;
 
@@ -14,7 +13,6 @@ public class MyAccountTests extends BaseTest {
     public String validPassword = PropertyHelper.getConf().validPassword();
     public final String EMAIL = PropertyHelper.getConf().email();
     public final String RETURN_PASSWORD = PropertyHelper.getConf().returnPassword();
-
 
     @Test(description = "Валидная смена пароля пользователя.")
     @Description("Valid changing user`s password.")

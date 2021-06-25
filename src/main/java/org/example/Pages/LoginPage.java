@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
 
 @Slf4j
 public class LoginPage extends BasePage {
@@ -26,7 +25,6 @@ public class LoginPage extends BasePage {
     @Step("Enter a nik in Login page")
     public LoginPage enterNik(String login) {
         inputNik.sendKeys(login);
-
         return this;
     }
 

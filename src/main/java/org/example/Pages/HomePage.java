@@ -41,12 +41,14 @@ public class HomePage extends BasePage {
     @Step("Click to flag change language button.")
     public HomePage itaFlagButtonClick() {
         itaFlagButton.click();
+        logger.info("Flag button is clicked.");
         return this;
     }
 
     @Step("Click to change language from English to Italiano.")
     public HomePage itaLocButtonClick() {
         itaLocButton.click();
+        logger.info("Italian localization link is clicked.");
         return this;
     }
 
@@ -54,18 +56,21 @@ public class HomePage extends BasePage {
     public HomePage checkItaLoc() {
         String itaLocConfirm = driver.getCurrentUrl();
         Assert.assertTrue(itaLocConfirm.contains("https://ita.windscribe.com/"));
+        logger.info("Italian localization is available.");
         return this;
     }
 
     @Step("Click to flag change language button.")
     public HomePage deuFlagButtonClick() {
         deuFlagButton.click();
+        logger.info("Flag button is clicked.");
         return this;
     }
 
     @Step("Click to change language from English to Dutch.")
     public HomePage deuLocButtonClick() {
         deuLocButton.click();
+        logger.info("Germany localization link is clicked.");
         return this;
     }
 
@@ -73,18 +78,21 @@ public class HomePage extends BasePage {
     public HomePage checkDeuLoc() {
         String deuLocConfirm = driver.getCurrentUrl();
         Assert.assertTrue(deuLocConfirm.contains("https://deu.windscribe.com/"));
+        logger.info("Deutsche localization is available");
         return this;
     }
 
     @Step("Click to flag change language button.")
     public HomePage clickToFlag() {
         rusFlagButton.click();
+        logger.info("Flag button is clicked.");
         return this;
     }
 
     @Step("Click to change language from English to Russian")
     public HomePage clickToChangeLoc() {
         rusLocButton.click();
+        logger.info("Russian localization link is clicked.");
         return this;
     }
 
@@ -93,12 +101,14 @@ public class HomePage extends BasePage {
         String rusLocConfirm = driver.getCurrentUrl();
         Assert.assertTrue(rusLocConfirm.contains("https://rus.windscribe.com/"));
         System.out.println("Russian localization is available");
+        logger.info("Russian localization is available");
         return this;
     }
 
     @Step("Click to \"LogIn\" button")
     public LoginPage goToLoginPage() {
         logInButton.click();
+        logger.info("\"LogIn\" button in Home page is clicked. Go to Login page.");
         return new LoginPage(driver);
     }
 }

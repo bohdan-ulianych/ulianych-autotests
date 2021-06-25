@@ -8,6 +8,7 @@ import driver.DriverProvider;
 
 public class BasePage {
     WebDriver driver;
+    public static Logger logger = LoggerFactory.getLogger(WebDriver.class);
 
     BasePage(WebDriver driver) {
         PageFactory.initElements(DriverProvider.getDriver(), this);

@@ -1,64 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>ulianych-autotests</artifactId>
+  <artifactId>qqq</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>ulianych-autotests</name>
+  <name>qqq</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <selenium-java.version>3.141.59</selenium-java.version>
-    <webdrivermanager.version>4.4.3</webdrivermanager.version>
-    <testng.version>6.14.3</testng.version>
-    <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
-    <allure-testng.version>2.12.1</allure-testng.version>
+    <junit.platform.version>1.7.0</junit.platform.version>
+    <junit.jupiter.version>5.7.0</junit.jupiter.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium-java.version}</version>
-    </dependency>
 
     <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${junit.platform.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.jupiter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>${junit.jupiter.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>4.3.2</version>
       <scope>test</scope>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-surefire-plugin</artifactId>
-      <version>${maven-surefire-plugin.version}</version>
-    </dependency>
-
-    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
-    <dependency>
-      <groupId>io.qameta.allure</groupId>
-      <artifactId>allure-testng</artifactId>
-      <version>${allure-testng.version}</version>
-    </dependency>
-
   </dependencies>
 
   <build>
@@ -78,6 +71,7 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
